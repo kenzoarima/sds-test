@@ -1,0 +1,38 @@
+name: Publish Figma Code Connect
+
+# Publishes Code Connect files to Figma whenever they change on main,
+# per https://developers.figma.com/docs/code-connect/ci-cd/
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "**/*.figma.ts"
+      - "**/*.figma.tsx"
+      - "**/*.figma.js"
+      - "**/*.figma.jsx"
+      - "**/*.figma.batch.json"
+      - "figma.config.json"
+
+  # Allows manually re-running a publish from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Publish Code Connect files
+        run: npm run figma:publish
+        env:
+          FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
