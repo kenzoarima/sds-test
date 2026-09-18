@@ -21,6 +21,7 @@ const iconEnd = instance.getBoolean("Has Icon End", {
   true: iconEndSwap?.executeTemplate().example,
 });
 const size = instance.getEnum("Size", {
+  Medium: "medium",
   Small: "small",
 });
 const isDisabled = instance.getEnum("State", {
