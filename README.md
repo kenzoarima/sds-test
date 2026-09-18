@@ -146,3 +146,5 @@ Some example integrations are available in `scripts` directory. They may require
   - [Install plugins](https://www.figma.com/plugin-docs/plugin-quickstart-guide/) in Development
   - Run plugins, and copy plugin outputs into [scripts/tokens/styles.json](./scripts/tokens/styles.json) and [scripts/tokens/tokens.json](./scripts/tokens/tokens.json)
   - Run `npm run script:tokens` (without `:rest`) and it will reference the JSON files directly without making a REST API request to update them
+
+This is a new change.
