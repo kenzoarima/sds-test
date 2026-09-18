@@ -13,7 +13,7 @@ dist-ssr
 *.local
 .env
 .VSCodeCounter
-.code-workspace
+*.code-workspace
 
 # Editor directories and files
 .vscode/*
